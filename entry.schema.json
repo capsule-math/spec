@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Proof package entry",
+  "description": "entry.json of a proof package; the index copy adds `location`.",
+  "type": "object",
+  "required": [
+    "title",
+    "authors",
+    "run"
+  ],
+  "properties": {
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "description": "short name of the theorem"
+    },
+    "authors": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "run": {
+      "type": "string",
+      "minLength": 1,
+      "description": "command that runs the checker, from the package root"
+    },
+    "paper": {
+      "type": "string",
+      "description": "journal reference with DOI, and/or arXiv id"
+    },
+    "keywords": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "subject and method"
+    },
+    "produce": {
+      "type": "string",
+      "description": "command that generates the produced inputs, from the package root"
+    },
+    "location": {
+      "type": "string",
+      "pattern": "^(https://github\\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/tree/[0-9a-f]{40}|https://doi\\.org/10\\.[0-9]+/\\S+)$",
+      "description": "index copy only: GitHub URL at a commit, or DOI URL"
+    }
+  },
+  "additionalProperties": false
+}
