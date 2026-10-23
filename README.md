@@ -109,14 +109,14 @@ Rules:
 What a reader, a script or an AI needs before opening the package. See
 `entry.schema.json`.
 
-| field | |
-|---|---|
-| `title` | required; short name of the theorem |
-| `authors` | required |
-| `run` | required; the command that runs the checker, from the package root |
-| `paper` | optional; journal reference with DOI, and/or arXiv id |
-| `keywords` | optional; subject and method, e.g. `["three-body problem", "radii polynomial theorem"]` |
-| `produce` | optional; the command that generates the produced inputs |
+| Field | Required | Meaning |
+|---|---|---|
+| `title` | ✓ | Name of the theorem |
+| `authors` | ✓ | Authors of the proof |
+| `run` | ✓ | Command that runs the checker |
+| `paper` | | Link or DOI of the paper |
+| `keywords` | | Search terms |
+| `produce` | | Command that regenerates the data |
 
 ## 6. Where a package lives
 
