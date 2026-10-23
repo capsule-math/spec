@@ -115,7 +115,7 @@ What a reader, a script or an AI needs before opening the package. See
 | `authors` | required |
 | `run` | required; the command that runs the checker, from the package root |
 | `paper` | optional; journal reference with DOI, and/or arXiv id |
-| `keywords` | optional; subject and method, e.g. `["three-body problem", "radii polynomial"]` |
+| `keywords` | optional; subject and method, e.g. `["three-body problem", "radii polynomial theorem"]` |
 | `produce` | optional; the command that generates the produced inputs |
 
 ## 6. Where a package lives
