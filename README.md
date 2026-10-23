@@ -1,4 +1,4 @@
-# Proof packages for computer-assisted proofs — specification v0.1
+# Proof packages for computer-assisted proofs — specification
 
 A *proof package* is a self-contained, durable record of a computer-assisted
 proof.
@@ -36,7 +36,7 @@ field (§6).
 ```
 statement.md      the theorem, the conditions, and which inputs are frozen or produced
 entry.json        title, authors, how to run the checker (and the producer)
-data/             the checker's inputs: frozen files, a producer, or both
+data/             the checker's frozen inputs, and hashes.json
 checker/          evaluates the conditions; exit 0 iff all hold
 tools/            optional helpers shipped with the template (hash_data.jl, fetch_data.jl)
 LICENSE
@@ -56,8 +56,8 @@ Rules:
 - States the theorem and cites the paper that proves it, if any.
 - Fixes the setting the conditions live in: spaces, norms, truncation
   parameters, constants, the map(s), with pointers to where the paper defines
-  them; and says in one line what arithmetic the checker relies on (library,
-  precision).
+  them; and says what the arithmetic must provide (e.g. outward-rounded
+  binary64 intervals; higher precision where used).
 - Describes the inputs: what they mean (coefficients of what, on which grid, in
   which basis), which are frozen and which are produced (§3), and the byte layout
   of each frozen file, so the data can be read without the checker's language.
@@ -87,7 +87,8 @@ Rules:
   using the files. `tools/hash_data.jl` writes this file and
   `tools/fetch_data.jl` downloads and verifies the files listed with a url;
   any tools doing the same will do.
-- The producer, if any, is run by the `produce` command of `entry.json`.
+- The producer, if any, lives wherever the authors like (a `search/` folder,
+  say) and is run by the `produce` command of `entry.json`.
 
 ## 4. checker/
 
@@ -97,10 +98,8 @@ Rules:
 
 - Runs from a clean environment, with dependencies declared and pinned. The
   command is `run` in `entry.json`.
-- Evaluates; it does not search. It may recompute auxiliary objects whose exact
-  values the conditions do not depend on (an approximate inverse, say), if
-  `statement.md` says so. Anything else it needs beyond `data/` (constants,
-  truncation orders) is written in the checker itself.
+- Evaluates; it does not search. Anything else it needs beyond `data/` is
+  written in the checker itself.
 - Prints each condition of `statement.md`, in order, with the enclosure
   obtained, prefixed `pass` or `fail`.
 - Exit code 0 iff every condition holds.
