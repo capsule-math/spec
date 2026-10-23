@@ -28,7 +28,7 @@ Start a package from [capsule-math/template](https://github.com/capsule-math/tem
 ## 0. Listing in the index
 
 Open a pull request in [capsule-math/index](https://github.com/capsule-math/index)
-adding `entries/<name>.json`: the package's `entry.json` plus a `location`
+adding `entries/<package-name>.json`: the package's `entry.json` plus a `location`
 field (§6).
 
 ## 1. Layout
