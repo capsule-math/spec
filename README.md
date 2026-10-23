@@ -124,10 +124,12 @@ What a reader, a script or an AI needs before opening the package. See
 Anywhere public: a GitHub repository, a Zenodo record, both, or any other
 link. The index records one pinned `location` per entry:
 
-- a GitHub URL at a commit, `https://github.com/<owner>/<repo>/tree/<40-hex sha>`, or
+- a GitHub URL at a commit, `https://github.com/<owner>/<repo>/tree/<40-hex sha>`,
+  followed by `/<folder>` when the package is one folder of a larger repository, or
 - a DOI, `https://doi.org/<doi>`.
 
-The `location` must be updated for any new version of a package.
+A repository holding several packages, one per folder, lists each with its own
+entry and its own folder in the location.
 
 If you want a DOI: a Zenodo record is free and permanent, and its files cannot
 be changed once published. [Upload the package](https://zenodo.org/uploads/new)
