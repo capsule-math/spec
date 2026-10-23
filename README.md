@@ -115,7 +115,7 @@ What a reader, a script or an AI needs before opening the package. See
 | `authors` | ✓ | Authors of the proof |
 | `run` | ✓ | Command that runs the checker |
 | `paper` | | Link or DOI of the paper |
-| `keywords` | | Search terms |
+| `keywords` | | Search terms; prefer those in the index's [keywords.toml](https://github.com/capsule-math/index/blob/main/keywords.toml) |
 | `produce` | | Command that regenerates the data |
 
 ## 6. Where a package lives
