@@ -105,9 +105,8 @@ Rules:
 - Case 1: Prints each condition of `statement.md`, in order, with the enclosure
   obtained, prefixed `pass` or `fail`. Exit code 0 iff every condition holds.
   Case 2: A proof made of independent cases may declare them in `cases` (§5).
-  `run` then contains one placeholder `{name}` per parameter, the checker is run
-  once per declared values and each run prints the conditions of that case and
-  exits 0 iff they hold. The theorem holds iff every run exits 0.
+  `run` then contains one placeholder `{name}` per case. The theorem holds iff
+  the checker exits 0 on every declared values.
 
 ## 5. entry.json
 
