@@ -64,6 +64,8 @@ Rules:
 - Lists the conditions, numbered, each a finite statement about the inputs
   verifiable by computation and tied to a lemma of the paper, such that all
   conditions hold ⇒ theorem.
+- When the package declares `cases` (§5), names the parameters and their ranges;
+  the theorem is the conjunction over all cases.
 
 ## 3. data/
 
@@ -100,9 +102,12 @@ Rules:
   command is `run` in `entry.json`.
 - Evaluates; it does not search. Anything else it needs beyond `data/` is
   written in the checker itself.
-- Prints each condition of `statement.md`, in order, with the enclosure
-  obtained, prefixed `pass` or `fail`.
-- Exit code 0 iff every condition holds.
+- Case 1: Prints each condition of `statement.md`, in order, with the enclosure
+  obtained, prefixed `pass` or `fail`. Exit code 0 iff every condition holds.
+  Case 2: A proof made of independent cases may declare them in `cases` (§5).
+  `run` then contains one placeholder `{name}` per parameter, the checker is run
+  once per declared values and each run prints the conditions of that case and
+  exits 0 iff they hold. The theorem holds iff every run exits 0.
 
 ## 5. entry.json
 
@@ -114,6 +119,7 @@ What a reader, a script or an AI needs before opening the package. See
 | `title` | ✓ | Name of the theorem |
 | `authors` | ✓ | Authors of the proof |
 | `run` | ✓ | Command that runs the checker |
+| `cases` | | The values of the placeholders in `run`, as `{"name": "a:b"}`, `"a:step:b"` or `{"name": [v1, v2, …]}` |
 | `paper` | | Link or DOI of the paper |
 | `keywords` | | Search terms; prefer those in the index's [keywords.toml](https://github.com/capsule-math/index/blob/main/keywords.toml) |
 | `produce` | | Command that regenerates the data |
