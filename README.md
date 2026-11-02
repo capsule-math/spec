@@ -107,6 +107,10 @@ Rules:
   Case 2: A proof made of independent cases may declare them in `cases` (§5).
   `run` then contains one placeholder `{name}` per case. The theorem holds iff
   the checker exits 0 on every declared values.
+  The CI of [capsule-math/index](https://github.com/capsule-math/index)
+  (`check-proofs.yml`, called from the package's repository) executes `run`;
+  with `cases`, it runs the case given by `test_case`, or else the first declared
+  value of each placeholder.
 
 ## 5. entry.json
 
