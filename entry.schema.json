@@ -39,6 +39,12 @@
         ]
       }
     },
+    "test_case": {
+      "type": "object",
+      "description": "with `cases`: the one case an automated check runs, one declared value per placeholder {name} of `run`",
+      "minProperties": 1,
+      "additionalProperties": { "anyOf": [ { "type": "string", "minLength": 1 }, { "type": "integer" } ] }
+    },
     "paper": {
       "type": "string",
       "description": "journal reference with DOI, and/or arXiv id"

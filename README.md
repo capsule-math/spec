@@ -107,6 +107,9 @@ Rules:
   Case 2: A proof made of independent cases may declare them in `cases` (§5).
   `run` then contains one placeholder `{name}` per case. The theorem holds iff
   the checker exits 0 on every declared values.
+  An automated check (CI, index) runs one case only, `test_case` or the first
+  declared value of each placeholder; the conjunction over all cases is the
+  authors' run, recorded in `statement.md`.
 
 ## 5. entry.json
 
@@ -119,6 +122,7 @@ What a reader, a script or an AI needs before opening the package. See
 | `authors` | ✓ | Authors of the proof |
 | `run` | ✓ | Command that runs the checker |
 | `cases` | | The values of the placeholders in `run`, as `{"name": "a:b"}`, `"a:step:b"` or `{"name": [v1, v2, …]}` |
+| `test_case` | | With `cases`: the one case an automated check runs, as `{"name": v}` with one declared value per placeholder; without it, the first value of each placeholder |
 | `paper` | | Link or DOI of the paper |
 | `keywords` | | Search terms; prefer those in the index's [keywords.toml](https://github.com/capsule-math/index/blob/main/keywords.toml) |
 | `produce` | | Command that regenerates the data |
