@@ -1,4 +1,4 @@
-# Proof packages for computer-assisted proofs — specification
+# Packages specification for computer-assisted proofs
 
 A *proof package* is a self-contained, durable record of a computer-assisted
 proof.
