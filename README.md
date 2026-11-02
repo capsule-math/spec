@@ -107,9 +107,9 @@ Rules:
   Case 2: A proof made of independent cases may declare them in `cases` (§5).
   `run` then contains one placeholder `{name}` per case. The theorem holds iff
   the checker exits 0 on every declared values.
-  An automated check (CI, index) runs one case only, `test_case` or the first
-  declared value of each placeholder; the conjunction over all cases is the
-  authors' run, recorded in `statement.md`.
+  An automated check (the repository's CI, say) runs one case only, `test_case`
+  or the first declared value of each placeholder; the conjunction over all
+  cases is the authors' run, recorded in `statement.md`.
 
 ## 5. entry.json
 

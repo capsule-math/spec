@@ -3,6 +3,7 @@
   "title": "Proof package entry",
   "description": "entry.json of a proof package; the index copy adds `location`.",
   "type": "object",
+  "dependentRequired": { "test_case": ["cases"] },
   "required": [
     "title",
     "authors",
